@@ -12,16 +12,18 @@
 		483AA9F31FAF48E300DEE9F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483AA9F11FAF48E300DEE9F4 /* Main.storyboard */; };
 		483AA9F51FAF48E300DEE9F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 483AA9F41FAF48E300DEE9F4 /* Assets.xcassets */; };
 		483AA9F81FAF48E300DEE9F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483AA9F61FAF48E300DEE9F4 /* LaunchScreen.storyboard */; };
+		48DADE921FC36822005B978F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DADE911FC36822005B978F /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		483AA9EA1FAF48E300DEE9F4 /* TideTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TideTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		483AA9EA1FAF48E300DEE9F4 /* Tidal Leigh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal Leigh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		483AA9EF1FAF48E300DEE9F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		483AA9F21FAF48E300DEE9F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		483AA9F41FAF48E300DEE9F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		483AA9F71FAF48E300DEE9F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		483AA9F91FAF48E300DEE9F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DADE911FC36822005B978F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +48,7 @@
 		483AA9EB1FAF48E300DEE9F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				483AA9EA1FAF48E300DEE9F4 /* TideTracker.app */,
+				483AA9EA1FAF48E300DEE9F4 /* Tidal Leigh.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +58,7 @@
 			children = (
 				483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */,
 				483AA9EF1FAF48E300DEE9F4 /* ViewController.swift */,
+				48DADE911FC36822005B978F /* StringExtensions.swift */,
 				483AA9F11FAF48E300DEE9F4 /* Main.storyboard */,
 				483AA9F41FAF48E300DEE9F4 /* Assets.xcassets */,
 				483AA9F61FAF48E300DEE9F4 /* LaunchScreen.storyboard */,
@@ -81,7 +84,7 @@
 			);
 			name = TideTracker;
 			productName = TideTracker;
-			productReference = 483AA9EA1FAF48E300DEE9F4 /* TideTracker.app */;
+			productReference = 483AA9EA1FAF48E300DEE9F4 /* Tidal Leigh.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +99,7 @@
 				TargetAttributes = {
 					483AA9E91FAF48E300DEE9F4 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48DADE921FC36822005B978F /* StringExtensions.swift in Sources */,
 				483AA9F01FAF48E300DEE9F4 /* ViewController.swift in Sources */,
 				483AA9EE1FAF48E300DEE9F4 /* AppDelegate.swift in Sources */,
 			);
@@ -274,12 +278,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2KVYSWMVXX;
 				INFOPLIST_FILE = TideTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Sullivan-Applications.TideTracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Sullivan-Applications.Tidal-Leigh";
+				PRODUCT_NAME = "Tidal Leigh";
+				PROVISIONING_PROFILE = "9025d5fa-56c5-47ac-b38b-1c2995bf3756";
+				PROVISIONING_PROFILE_SPECIFIER = TidalLeighProfile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,12 +297,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2KVYSWMVXX;
 				INFOPLIST_FILE = TideTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Sullivan-Applications.TideTracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Sullivan-Applications.Tidal-Leigh";
+				PRODUCT_NAME = "Tidal Leigh";
+				PROVISIONING_PROFILE = "9025d5fa-56c5-47ac-b38b-1c2995bf3756";
+				PROVISIONING_PROFILE_SPECIFIER = TidalLeighProfile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
