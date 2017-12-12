@@ -17,7 +17,6 @@ enum Result<T> {
   case error(_: String)
 }
 
-
 protocol TideModelType {
   func downloadData(location: String, completion: @escaping ResultBlock<TideProperties>)
 }
@@ -33,7 +32,6 @@ struct TideModel: TideModelType {
     let leighUrl = URL(string: "https://www.tidetime.org/europe/united-kingdom/" + location + ".htm")
     
     guard let url = leighUrl else {
-      //      setErrorLabels()
       completion(Result.error(""))
       return
     }
@@ -47,7 +45,6 @@ struct TideModel: TideModelType {
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
       
       guard let data = data else {
-        //        self.setErrorLabels()
         completion(Result.error(""))
         return
       }
@@ -70,12 +67,11 @@ struct TideModel: TideModelType {
         
         else {
           
-          //          self.setErrorLabels()
           completion(Result.error(""))
           
           return
       }
-      let properties = (highTide: highTide, lowTide: lowTide, statusSlice: statusSlice, percentSlice: percentSlice)
+      let properties: TideProperties = (highTide: highTide, lowTide: lowTide, statusSlice: statusSlice, percentSlice: percentSlice)
       completion(Result.value(properties))
       
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TideVC: UIViewController, UITextFieldDelegate {
+class TideVC: UIViewController {
 
   @IBOutlet weak var percentLabel: UILabel!
   @IBOutlet weak var statusLabel: UILabel!
@@ -54,12 +54,6 @@ class TideVC: UIViewController, UITextFieldDelegate {
     
   }
   
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    startTimer(withInterval: 60)
-    self.view.endEditing(true)
-    return true
-  }
-  
   func success(properties: TideProperties) {
     
     DispatchQueue.main.async {
@@ -74,13 +68,14 @@ class TideVC: UIViewController, UITextFieldDelegate {
       })
       self.view.endEditing(true)
       
-      let percentStr = properties.percentSlice.split(separator: "%").first!//.percentSlice.replacingOccurrences(of: "%", with: "")
-      
-      guard let percent = Int(percentStr) else {
+      guard
+        let percentStr = properties.percentSlice.split(separator: "%").first,
+        let percent = Int(percentStr)
         
-        self.bgImage.image = #imageLiteral(resourceName: "leigh")
-        
-        return
+        else {
+          
+          self.bgImage.image = #imageLiteral(resourceName: "leigh")
+          return
       }
       
       if percent < 50 {
@@ -92,8 +87,6 @@ class TideVC: UIViewController, UITextFieldDelegate {
       } else if percent > 80 {
         self.bgImage.image = #imageLiteral(resourceName: "ninetyeight")
       }
-      
-      
     }
   }
   
@@ -137,3 +130,11 @@ class TideVC: UIViewController, UITextFieldDelegate {
   }
 }
 
+extension TideVC: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    startTimer(withInterval: 60)
+    self.view.endEditing(true)
+    return true
+  }
+}
