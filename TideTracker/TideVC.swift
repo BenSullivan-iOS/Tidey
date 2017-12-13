@@ -12,7 +12,6 @@ class TideVC: UIViewController {
 
   @IBOutlet weak var percentLabel: UILabel!
   @IBOutlet weak var statusLabel: UILabel!
-  
   @IBOutlet weak var highTideLabel: UILabel!
   @IBOutlet weak var lowTideLabel: UILabel!
   
@@ -21,40 +20,53 @@ class TideVC: UIViewController {
   
   @IBOutlet weak var searchButton: UIImageView!
   
-  var tideModel: TideModelType!
-  var timer: Timer?
+  fileprivate var model: TideModelType!
+  fileprivate var timer: Timer?
+  
+  
+  //MARK: - VC Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let model = TideModel()
-    tideModel = model
+    self.model = TideModel()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
-    locationTF.delegate = self
-    locationTF.returnKeyType = .search
-    locationTF.alpha = 0
 
+    configureTextfield()
     startTimer(withInterval: 60)
-    
-    let gesture = UITapGestureRecognizer(target: self, action: #selector(searchTapped))
-    
-    searchButton.addGestureRecognizer(gesture)
+    addSearchGestureRecogniser()
   }
   
-  @objc func searchTapped() {
+  
+  //MARK: - Data capture operations
+  
+  fileprivate func startTimer(withInterval interval: TimeInterval) {
     
-    UIView.animate(withDuration: 0.5) {
-      self.locationTF.alpha = 1
+    if timer != nil {
+      if timer!.isValid {
+        timer!.invalidate()
+      }
     }
-    self.locationTF.becomeFirstResponder()
     
+    timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
+      self.model.downloadData(location: self.locationTF.text!) { result in
+        
+        switch result {
+        case .value(let properties):
+          self.success(properties: properties)
+        case .error(_):
+          self.setErrorLabels()
+        }
+      }
+    }
+    
+    timer!.fire()
   }
   
-  func success(properties: TideProperties) {
+  fileprivate func success(properties: TideProperties) {
     
     DispatchQueue.main.async {
       
@@ -90,7 +102,8 @@ class TideVC: UIViewController {
     }
   }
   
-  func setErrorLabels() {
+  fileprivate func setErrorLabels() {
+    
     DispatchQueue.main.async {
       self.statusLabel.text = "💩"
       self.percentLabel.text = "No connection? Can't spell?"
@@ -104,27 +117,25 @@ class TideVC: UIViewController {
     }
   }
   
-  func startTimer(withInterval interval: TimeInterval) {
-    
-    if timer != nil {
-      if timer!.isValid {
-        timer!.invalidate()
-      }
+  
+  //MARK: - Style & setup
+  
+  fileprivate func configureTextfield() {
+    locationTF.delegate = self
+    locationTF.returnKeyType = .search
+    locationTF.alpha = 0
+  }
+  
+  fileprivate func addSearchGestureRecogniser() {
+    let gesture = UITapGestureRecognizer(target: self, action: #selector(searchTapped))
+    searchButton.addGestureRecognizer(gesture)
+  }
+  
+  @objc fileprivate func searchTapped() {
+    UIView.animate(withDuration: 0.5) {
+      self.locationTF.alpha = 1
     }
-    
-    timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
-      self.tideModel.downloadData(location: self.locationTF.text!) { result in
-        
-        switch result {
-        case .value(let properties):
-          self.success(properties: properties)
-        case .error(_):
-          self.setErrorLabels()
-        }
-      }
-    }
-    
-    timer!.fire()
+    self.locationTF.becomeFirstResponder()
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {

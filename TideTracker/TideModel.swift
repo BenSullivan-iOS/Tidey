@@ -10,13 +10,6 @@ import Foundation
 
 typealias TideProperties = (highTide: String, lowTide: String, statusSlice: String, percentSlice: String)
 
-typealias ResultBlock<T> = (Result<T>) -> ()
-
-enum Result<T> {
-  case value(T)
-  case error(_: String)
-}
-
 protocol TideModelType {
   func downloadData(location: String, completion: @escaping ResultBlock<TideProperties>)
 }
@@ -25,7 +18,7 @@ struct TideModel: TideModelType {
   
   func downloadData(location: String, completion: @escaping ResultBlock<TideProperties>) -> () {
     
-    let location = location == "" ? "leigh-on-sea" : location.lowercased()
+    let location = location.isEmpty ? "leigh-on-sea" : location.lowercased()
       .trimmingCharacters(in: .whitespacesAndNewlines)
       .replacingOccurrences(of: " ", with: "-")
     
@@ -51,8 +44,6 @@ struct TideModel: TideModelType {
       
       let responseData = String(data: data, encoding: String.Encoding.utf8)
       
-      //high tide
-      
       let highTideSlice = responseData?.slice(from: "</h4>\n\t\t", to: "\n\t\t\t</div>")
       let lowTideSlice = responseData?.slice(from: "Next low tide:</h4>\n\t\t", to: "\n\t\t\t</div>")
       
@@ -66,12 +57,17 @@ struct TideModel: TideModelType {
         let percentSlice = firstSlice?.slice(from: "</strong> (", to: ")")
         
         else {
-          
           completion(Result.error(""))
-          
           return
       }
-      let properties: TideProperties = (highTide: highTide, lowTide: lowTide, statusSlice: statusSlice, percentSlice: percentSlice)
+      
+      let properties: TideProperties = (
+        highTide: highTide,
+        lowTide: lowTide,
+        statusSlice: statusSlice,
+        percentSlice: percentSlice
+      )
+      
       completion(Result.value(properties))
       
     }

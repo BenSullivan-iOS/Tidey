@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4801EEA31FE13C980040A6DC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801EEA21FE13C980040A6DC /* Result.swift */; };
 		483AA9EE1FAF48E300DEE9F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */; };
 		483AA9F01FAF48E300DEE9F4 /* TideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AA9EF1FAF48E300DEE9F4 /* TideVC.swift */; };
 		483AA9F31FAF48E300DEE9F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483AA9F11FAF48E300DEE9F4 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4801EEA21FE13C980040A6DC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		483AA9EA1FAF48E300DEE9F4 /* Tidey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		483AA9EF1FAF48E300DEE9F4 /* TideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideVC.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */,
 				483AA9EF1FAF48E300DEE9F4 /* TideVC.swift */,
 				486C04781FE07E7800D32A2A /* TideModel.swift */,
+				4801EEA21FE13C980040A6DC /* Result.swift */,
 				48DADE911FC36822005B978F /* StringExtensions.swift */,
 				483AA9F11FAF48E300DEE9F4 /* Main.storyboard */,
 				483AA9F41FAF48E300DEE9F4 /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48DADE921FC36822005B978F /* StringExtensions.swift in Sources */,
+				4801EEA31FE13C980040A6DC /* Result.swift in Sources */,
 				486C04791FE07E7800D32A2A /* TideModel.swift in Sources */,
 				483AA9F01FAF48E300DEE9F4 /* TideVC.swift in Sources */,
 				483AA9EE1FAF48E300DEE9F4 /* AppDelegate.swift in Sources */,
