@@ -25,9 +25,9 @@ struct TideModel: TideModelType {
   
   func downloadData(location: String, completion: @escaping ResultBlock<TideProperties>) -> () {
     
-    var location = location == "" ? "leigh-on-sea" : location.lowercased()
-    
-    location = location.replacingOccurrences(of: " ", with: "-")
+    let location = location == "" ? "leigh-on-sea" : location.lowercased()
+      .trimmingCharacters(in: .whitespacesAndNewlines)
+      .replacingOccurrences(of: " ", with: "-")
     
     let leighUrl = URL(string: "https://www.tidetime.org/europe/united-kingdom/" + location + ".htm")
     

@@ -95,7 +95,9 @@ class TideVC: UIViewController {
       self.statusLabel.text = "💩"
       self.percentLabel.text = "No connection? Can't spell?"
       self.locationTF.becomeFirstResponder()
-      
+      if self.bgImage.image == nil {
+        self.bgImage.image = #imageLiteral(resourceName: "leigh")
+      }
       UIView.animate(withDuration: 0.5, animations: {
         self.locationTF.alpha = 1
       })
