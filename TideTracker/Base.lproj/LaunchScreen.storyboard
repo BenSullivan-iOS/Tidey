@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,10 +24,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lbT-6w-nvF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="26A-Hm-4pR"/>
                             <constraint firstItem="lbT-6w-nvF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5R4-SC-ce6"/>
-                            <constraint firstItem="lbT-6w-nvF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NUm-3U-AHg"/>
-                            <constraint firstItem="lbT-6w-nvF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="hEX-kK-Zd8"/>
+                            <constraint firstItem="lbT-6w-nvF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F2d-rF-JUu"/>
+                            <constraint firstItem="lbT-6w-nvF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fRN-mG-UiQ"/>
+                            <constraint firstItem="lbT-6w-nvF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="vmg-NF-DMm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

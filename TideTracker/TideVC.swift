@@ -18,11 +18,15 @@ class TideVC: UIViewController {
   @IBOutlet weak var locationTF: UITextField!
   @IBOutlet weak var bgImage: UIImageView!
   
+  @IBOutlet weak var launchImage: UIImageView!
+  
   @IBOutlet weak var searchButton: UIImageView!
+  @IBOutlet weak var backgroundButton: UIButton!
   
   fileprivate var model: TideModelType!
   fileprivate var timer: Timer?
   
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   //MARK: - VC Lifecycle
   
@@ -30,6 +34,7 @@ class TideVC: UIViewController {
     super.viewDidLoad()
     
     self.model = TideModel()
+    activityIndicator.hidesWhenStopped = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +45,9 @@ class TideVC: UIViewController {
     addSearchGestureRecogniser()
   }
   
+  @IBAction func backgroundButtonTapped(_ sender: UIButton) {
+    searchTapped()
+  }
   
   //MARK: - Data capture operations
   
@@ -52,6 +60,7 @@ class TideVC: UIViewController {
     }
     
     timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
+      self.activityIndicator.startAnimating()
       self.model.downloadData(location: self.locationTF.text!) { result in
         
         switch result {
@@ -69,11 +78,39 @@ class TideVC: UIViewController {
   fileprivate func success(properties: TideProperties) {
     
     DispatchQueue.main.async {
+      self.activityIndicator.stopAnimating()
+      self.launchImage.alpha = 0
+
+      let location = self.locationTF.text!.isEmpty ? "Leigh-on-Sea" : self.locationTF.text!
+      self.statusLabel.text = location
+      self.statusLabel.alpha = 0
+      self.percentLabel.text = properties.percentSlice
+      self.percentLabel.alpha = 0
+
+      UIView.animate(withDuration: 0.8, animations: {
+        self.statusLabel.alpha = 1
+
+      }, completion: { finished in
+        
+        if finished {
+          
+          UIView.animate(withDuration: 0.8, animations: {
+            self.statusLabel.alpha = 0
+            
+          }, completion: { finished in
+            
+            UIView.animate(withDuration: 0.8, animations: {
+              self.statusLabel.alpha = 1
+              self.percentLabel.alpha = 1
+
+              self.statusLabel.text = properties.statusSlice
+            })
+          })
+        }
+      })
       
       self.highTideLabel.text = "High tide in " + properties.highTide
       self.lowTideLabel.text = "Low tide in " + properties.lowTide
-      self.statusLabel.text = properties.statusSlice
-      self.percentLabel.text = properties.percentSlice
       
       UIView.animate(withDuration: 0.3, animations: {
         self.locationTF.alpha = 0
@@ -105,11 +142,14 @@ class TideVC: UIViewController {
   fileprivate func setErrorLabels() {
     
     DispatchQueue.main.async {
+      self.activityIndicator.stopAnimating()
+
       self.statusLabel.text = "💩"
       self.percentLabel.text = "No connection? Can't spell?"
       self.locationTF.becomeFirstResponder()
       if self.bgImage.image == nil {
         self.bgImage.image = #imageLiteral(resourceName: "leigh")
+        self.launchImage.alpha = 0
       }
       UIView.animate(withDuration: 0.5, animations: {
         self.locationTF.alpha = 1
@@ -132,6 +172,7 @@ class TideVC: UIViewController {
   }
   
   @objc fileprivate func searchTapped() {
+    
     UIView.animate(withDuration: 0.5) {
       self.locationTF.alpha = 1
     }
@@ -150,4 +191,5 @@ extension TideVC: UITextFieldDelegate {
     self.view.endEditing(true)
     return true
   }
+  
 }
