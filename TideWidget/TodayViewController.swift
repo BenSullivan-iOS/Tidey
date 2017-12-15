@@ -13,6 +13,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
   var model: TideModelType!
   
+  @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var locationLabel: UILabel!
   
   override func viewDidLoad() {
@@ -29,11 +30,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         switch result {
         case .value(let properties):
           
-//          self.locationLabel.text = "Leigh-on-sea"
           print("go")
-//          self.success(properties: properties)
         case .error(_):
-//          self.setErrorLabels()
           print("bro")
         }
         
@@ -42,7 +40,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    stackView.subviews[1].isHidden = true
+  }
+  
   func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+  
+    stackView.subviews[1].isHidden = !stackView.subviews[1].isHidden
+    
+    view.layoutSubviews()
     
   }
   

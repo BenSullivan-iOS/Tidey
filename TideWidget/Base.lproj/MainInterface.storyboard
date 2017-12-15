@@ -16,55 +16,105 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TideWidget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tidegoingdown" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-hv-6wi">
-                                <rect key="frame" x="4" y="8" width="96" height="84"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-8K-aSt">
-                                <rect key="frame" x="108" y="15" width="119" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="weO-jR-2ir">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leigh-on-sea" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-af-gHx">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-dB-qqs">
-                                        <rect key="frame" x="0.0" y="29" width="96.5" height="41"/>
+                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="hKp-qh-aRZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tide is rising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR9-4E-oED">
-                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98% Full" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-o8-NRd">
-                                                <rect key="frame" x="0.0" y="20.5" width="65" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tidegoingdown" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-hv-6wi">
+                                                <rect key="frame" x="0.0" y="8" width="96" height="85"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-8K-aSt">
+                                                <rect key="frame" x="101" y="15" width="219" height="70"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leigh-on-sea" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-af-gHx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="119" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-dB-qqs">
+                                                        <rect key="frame" x="0.0" y="29" width="96.5" height="41"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tide is rising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR9-4E-oED">
+                                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98% Full" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-o8-NRd">
+                                                                <rect key="frame" x="0.0" y="20.5" width="65" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="b9O-8K-aSt" firstAttribute="centerY" secondItem="hKp-qh-aRZ" secondAttribute="centerY" id="3fY-9f-lEv"/>
+                                            <constraint firstItem="gFt-hv-6wi" firstAttribute="top" secondItem="hKp-qh-aRZ" secondAttribute="top" constant="8" id="UBF-4J-VfJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="b9O-8K-aSt" secondAttribute="trailing" id="bl9-Gl-tr5"/>
+                                            <constraint firstAttribute="height" constant="101" id="dJP-ov-ajB"/>
+                                            <constraint firstItem="b9O-8K-aSt" firstAttribute="leading" secondItem="gFt-hv-6wi" secondAttribute="trailing" constant="5" id="dnt-Jv-tPr"/>
+                                            <constraint firstItem="gFt-hv-6wi" firstAttribute="width" secondItem="hKp-qh-aRZ" secondAttribute="width" multiplier="0.3" id="i3f-ag-y43"/>
+                                            <constraint firstItem="gFt-hv-6wi" firstAttribute="leading" secondItem="hKp-qh-aRZ" secondAttribute="leading" id="jss-Ek-U8B"/>
+                                            <constraint firstAttribute="bottom" secondItem="gFt-hv-6wi" secondAttribute="bottom" constant="8" id="mRy-IM-nsm"/>
+                                            <constraint firstItem="b9O-8K-aSt" firstAttribute="leading" secondItem="gFt-hv-6wi" secondAttribute="trailing" constant="5" id="zcX-co-WtU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWF-GJ-Mq1">
+                                        <rect key="frame" x="0.0" y="101" width="320" height="49"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vS1-ee-rZ1">
+                                                <rect key="frame" x="8" y="5" width="200.5" height="41"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High tide in 11 hrs 24 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-i1-odh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High tide in 11 hrs 24 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Te-tv-Jjx">
+                                                        <rect key="frame" x="0.0" y="20.5" width="200.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="vS1-ee-rZ1" firstAttribute="top" secondItem="IWF-GJ-Mq1" secondAttribute="top" constant="5" id="2zo-AY-Bhh"/>
+                                            <constraint firstItem="vS1-ee-rZ1" firstAttribute="leading" secondItem="IWF-GJ-Mq1" secondAttribute="leading" constant="8" id="3QE-rZ-CDa"/>
+                                            <constraint firstAttribute="bottom" secondItem="vS1-ee-rZ1" secondAttribute="bottom" constant="3" id="iuJ-wL-3yI"/>
+                                            <constraint firstAttribute="height" constant="49" id="lht-J7-NVK"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="gFt-hv-6wi" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="4" id="IZa-fG-4cl"/>
-                            <constraint firstItem="b9O-8K-aSt" firstAttribute="leading" secondItem="gFt-hv-6wi" secondAttribute="trailing" constant="8" id="Q67-CE-udo"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="gFt-hv-6wi" secondAttribute="bottom" constant="8" id="Qnv-PW-Ghe"/>
-                            <constraint firstItem="gFt-hv-6wi" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="8" id="TtF-Mr-qhk"/>
-                            <constraint firstItem="gFt-hv-6wi" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" multiplier="0.3" id="btf-8D-kfZ"/>
-                            <constraint firstItem="b9O-8K-aSt" firstAttribute="centerY" secondItem="gFt-hv-6wi" secondAttribute="centerY" id="oA6-Li-PiU"/>
+                            <constraint firstItem="weO-jR-2ir" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="39B-Ie-lBh"/>
+                            <constraint firstItem="weO-jR-2ir" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="J8J-cc-SJg"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="weO-jR-2ir" secondAttribute="bottom" id="RDd-3s-TSP"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="weO-jR-2ir" secondAttribute="trailing" id="Too-X6-RH3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="100"/>
+                    <size key="freeformSize" width="320" height="150"/>
                     <connections>
                         <outlet property="locationLabel" destination="3Xa-af-gHx" id="cOZ-TT-k3M"/>
+                        <outlet property="stackView" destination="weO-jR-2ir" id="bMc-2D-1kh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
