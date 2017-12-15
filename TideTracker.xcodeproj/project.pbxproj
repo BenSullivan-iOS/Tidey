@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4801EEA31FE13C980040A6DC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801EEA21FE13C980040A6DC /* Result.swift */; };
+		482E8E491FE3E15200AE8FB7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482E8E481FE3E15200AE8FB7 /* NotificationCenter.framework */; };
+		482E8E4C1FE3E15200AE8FB7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E8E4B1FE3E15200AE8FB7 /* TodayViewController.swift */; };
+		482E8E4F1FE3E15200AE8FB7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482E8E4D1FE3E15200AE8FB7 /* MainInterface.storyboard */; };
+		482E8E531FE3E15200AE8FB7 /* TideWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 482E8E461FE3E15100AE8FB7 /* TideWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		482E8E581FE3E36F00AE8FB7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E8E4B1FE3E15200AE8FB7 /* TodayViewController.swift */; };
+		482E8E591FE3E43C00AE8FB7 /* TideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C04781FE07E7800D32A2A /* TideModel.swift */; };
+		482E8E5A1FE3E48300AE8FB7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801EEA21FE13C980040A6DC /* Result.swift */; };
+		482E8E5B1FE3E4EB00AE8FB7 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DADE911FC36822005B978F /* StringExtensions.swift */; };
+		482E8E5C1FE3E9CD00AE8FB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 483AA9F41FAF48E300DEE9F4 /* Assets.xcassets */; };
 		483AA9EE1FAF48E300DEE9F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */; };
 		483AA9F01FAF48E300DEE9F4 /* TideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AA9EF1FAF48E300DEE9F4 /* TideVC.swift */; };
 		483AA9F31FAF48E300DEE9F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483AA9F11FAF48E300DEE9F4 /* Main.storyboard */; };
@@ -17,8 +26,37 @@
 		48DADE921FC36822005B978F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DADE911FC36822005B978F /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		482E8E511FE3E15200AE8FB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 483AA9E21FAF48E300DEE9F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 482E8E451FE3E15100AE8FB7;
+			remoteInfo = TideWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		482E8E571FE3E15200AE8FB7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				482E8E531FE3E15200AE8FB7 /* TideWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4801EEA21FE13C980040A6DC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		482E8E461FE3E15100AE8FB7 /* TideWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TideWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		482E8E481FE3E15200AE8FB7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		482E8E4B1FE3E15200AE8FB7 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		482E8E4E1FE3E15200AE8FB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		482E8E501FE3E15200AE8FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		483AA9EA1FAF48E300DEE9F4 /* Tidey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		483AA9EF1FAF48E300DEE9F4 /* TideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideVC.swift; sourceTree = "<group>"; };
@@ -31,6 +69,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		482E8E431FE3E15100AE8FB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				482E8E491FE3E15200AE8FB7 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		483AA9E71FAF48E300DEE9F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +87,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482E8E471FE3E15200AE8FB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				482E8E481FE3E15200AE8FB7 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		482E8E4A1FE3E15200AE8FB7 /* TideWidget */ = {
+			isa = PBXGroup;
+			children = (
+				482E8E4B1FE3E15200AE8FB7 /* TodayViewController.swift */,
+				482E8E4D1FE3E15200AE8FB7 /* MainInterface.storyboard */,
+				482E8E501FE3E15200AE8FB7 /* Info.plist */,
+			);
+			path = TideWidget;
+			sourceTree = "<group>";
+		};
 		483AA9E11FAF48E300DEE9F4 = {
 			isa = PBXGroup;
 			children = (
 				483AA9EC1FAF48E300DEE9F4 /* TideTracker */,
+				482E8E4A1FE3E15200AE8FB7 /* TideWidget */,
+				482E8E471FE3E15200AE8FB7 /* Frameworks */,
 				483AA9EB1FAF48E300DEE9F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				483AA9EA1FAF48E300DEE9F4 /* Tidey.app */,
+				482E8E461FE3E15100AE8FB7 /* TideWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +143,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		482E8E451FE3E15100AE8FB7 /* TideWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 482E8E561FE3E15200AE8FB7 /* Build configuration list for PBXNativeTarget "TideWidget" */;
+			buildPhases = (
+				482E8E421FE3E15100AE8FB7 /* Sources */,
+				482E8E431FE3E15100AE8FB7 /* Frameworks */,
+				482E8E441FE3E15100AE8FB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TideWidget;
+			productName = TideWidget;
+			productReference = 482E8E461FE3E15100AE8FB7 /* TideWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		483AA9E91FAF48E300DEE9F4 /* TideTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 483AA9FC1FAF48E300DEE9F4 /* Build configuration list for PBXNativeTarget "TideTracker" */;
@@ -83,10 +167,12 @@
 				483AA9E61FAF48E300DEE9F4 /* Sources */,
 				483AA9E71FAF48E300DEE9F4 /* Frameworks */,
 				483AA9E81FAF48E300DEE9F4 /* Resources */,
+				482E8E571FE3E15200AE8FB7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				482E8E521FE3E15200AE8FB7 /* PBXTargetDependency */,
 			);
 			name = TideTracker;
 			productName = TideTracker;
@@ -99,10 +185,14 @@
 		483AA9E21FAF48E300DEE9F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Sullivan Applications";
 				TargetAttributes = {
+					482E8E451FE3E15100AE8FB7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					483AA9E91FAF48E300DEE9F4 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
@@ -123,11 +213,21 @@
 			projectRoot = "";
 			targets = (
 				483AA9E91FAF48E300DEE9F4 /* TideTracker */,
+				482E8E451FE3E15100AE8FB7 /* TideWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		482E8E441FE3E15100AE8FB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				482E8E5C1FE3E9CD00AE8FB7 /* Assets.xcassets in Resources */,
+				482E8E4F1FE3E15200AE8FB7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		483AA9E81FAF48E300DEE9F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,12 +241,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		482E8E421FE3E15100AE8FB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				482E8E5B1FE3E4EB00AE8FB7 /* StringExtensions.swift in Sources */,
+				482E8E5A1FE3E48300AE8FB7 /* Result.swift in Sources */,
+				482E8E4C1FE3E15200AE8FB7 /* TodayViewController.swift in Sources */,
+				482E8E591FE3E43C00AE8FB7 /* TideModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		483AA9E61FAF48E300DEE9F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				48DADE921FC36822005B978F /* StringExtensions.swift in Sources */,
 				4801EEA31FE13C980040A6DC /* Result.swift in Sources */,
+				482E8E581FE3E36F00AE8FB7 /* TodayViewController.swift in Sources */,
 				486C04791FE07E7800D32A2A /* TideModel.swift in Sources */,
 				483AA9F01FAF48E300DEE9F4 /* TideVC.swift in Sources */,
 				483AA9EE1FAF48E300DEE9F4 /* AppDelegate.swift in Sources */,
@@ -155,7 +267,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		482E8E521FE3E15200AE8FB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 482E8E451FE3E15100AE8FB7 /* TideWidget */;
+			targetProxy = 482E8E511FE3E15200AE8FB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		482E8E4D1FE3E15200AE8FB7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				482E8E4E1FE3E15200AE8FB7 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		483AA9F11FAF48E300DEE9F4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -175,6 +303,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		482E8E541FE3E15200AE8FB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KVYSWMVXX;
+				INFOPLIST_FILE = TideWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Sullivan-Applications.Tidal-Leigh.TideWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		482E8E551FE3E15200AE8FB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KVYSWMVXX;
+				INFOPLIST_FILE = TideWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Sullivan-Applications.Tidal-Leigh.TideWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		483AA9FA1FAF48E300DEE9F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -285,6 +445,7 @@
 		483AA9FD1FAF48E300DEE9F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -304,6 +465,7 @@
 		483AA9FE1FAF48E300DEE9F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -323,6 +485,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		482E8E561FE3E15200AE8FB7 /* Build configuration list for PBXNativeTarget "TideWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				482E8E541FE3E15200AE8FB7 /* Debug */,
+				482E8E551FE3E15200AE8FB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		483AA9E51FAF48E300DEE9F4 /* Build configuration list for PBXProject "TideTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

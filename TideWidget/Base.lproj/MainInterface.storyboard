@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TideWidget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tidegoingdown" translatesAutoresizingMaskIntoConstraints="NO" id="gFt-hv-6wi">
+                                <rect key="frame" x="4" y="8" width="96" height="84"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-8K-aSt">
+                                <rect key="frame" x="108" y="15" width="119" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leigh-on-sea" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-af-gHx">
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-dB-qqs">
+                                        <rect key="frame" x="0.0" y="29" width="96.5" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tide is rising" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR9-4E-oED">
+                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98% Full" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-o8-NRd">
+                                                <rect key="frame" x="0.0" y="20.5" width="65" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="gFt-hv-6wi" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="4" id="IZa-fG-4cl"/>
+                            <constraint firstItem="b9O-8K-aSt" firstAttribute="leading" secondItem="gFt-hv-6wi" secondAttribute="trailing" constant="8" id="Q67-CE-udo"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="gFt-hv-6wi" secondAttribute="bottom" constant="8" id="Qnv-PW-Ghe"/>
+                            <constraint firstItem="gFt-hv-6wi" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="8" id="TtF-Mr-qhk"/>
+                            <constraint firstItem="gFt-hv-6wi" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" multiplier="0.3" id="btf-8D-kfZ"/>
+                            <constraint firstItem="b9O-8K-aSt" firstAttribute="centerY" secondItem="gFt-hv-6wi" secondAttribute="centerY" id="oA6-Li-PiU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="100"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="3Xa-af-gHx" id="cOZ-TT-k3M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.875" y="30.633802816901408"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tidegoingdown" width="330" height="330"/>
+    </resources>
+</document>
