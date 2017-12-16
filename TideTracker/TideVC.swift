@@ -35,6 +35,13 @@ class TideVC: UIViewController {
     
     self.model = TideModel()
     activityIndicator.hidesWhenStopped = true
+    
+    let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
+    let location = userDefaults.value(forKey: "location") as AnyObject?
+    
+    if let location = location as? String {
+      locationTF.text = location
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +85,10 @@ class TideVC: UIViewController {
   fileprivate func success(properties: TideProperties) {
     
     DispatchQueue.main.async {
+      
+      let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
+      userDefaults.setValue(self.locationTF.text!, forKey: "location")
+      
       self.activityIndicator.stopAnimating()
       self.launchImage.alpha = 0
 

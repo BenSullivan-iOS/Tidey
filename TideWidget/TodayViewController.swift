@@ -16,21 +16,48 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var locationLabel: UILabel!
   
+  @IBOutlet weak var mainTideImage: UIImageView!
+  
+  @IBOutlet weak var tideStatus: UILabel!
+  @IBOutlet weak var tidePercentage: UILabel!
+  @IBOutlet weak var highTideLabel: UILabel!
+  @IBOutlet weak var lowTideLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     
+    let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
+    let savedLocation = userDefaults.value(forKey: "location") as AnyObject?
+    
+    var location = "Leigh-on-sea"
+    
+    if let savedLocation = savedLocation as? String {
+      location = savedLocation
+    }
+    
     model = TideModel()
     
-    self.model.downloadData(location: "leigh-on-sea") { result in
+    self.model.downloadData(location: location) { result in
       
       DispatchQueue.main.async {
         
         switch result {
         case .value(let properties):
           
-          print("go")
+          self.locationLabel.text = location
+          self.tideStatus.text = properties.statusSlice
+          self.tidePercentage.text = properties.percentSlice
+          self.highTideLabel.text = "High tide in " + properties.highTide
+          self.lowTideLabel.text = "Low tide in " + properties.lowTide
+          
+          if properties.statusSlice.contains("falling") {
+            self.mainTideImage.image = #imageLiteral(resourceName: "tidegoingdown")
+          } else {
+            self.mainTideImage.image = #imageLiteral(resourceName: "tidegoingup")
+          }
+          
         case .error(_):
           print("bro")
         }

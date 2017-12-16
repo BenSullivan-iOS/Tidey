@@ -64,6 +64,8 @@
 		483AA9F41FAF48E300DEE9F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		483AA9F71FAF48E300DEE9F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		483AA9F91FAF48E300DEE9F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		484F656B1FE422ED0006DB0F /* TideWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TideWidget.entitlements; sourceTree = "<group>"; };
+		484F656C1FE423440006DB0F /* Tidey.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tidey.entitlements; sourceTree = "<group>"; };
 		486C04781FE07E7800D32A2A /* TideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideModel.swift; sourceTree = "<group>"; };
 		48DADE911FC36822005B978F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 		482E8E4A1FE3E15200AE8FB7 /* TideWidget */ = {
 			isa = PBXGroup;
 			children = (
+				484F656B1FE422ED0006DB0F /* TideWidget.entitlements */,
 				482E8E4B1FE3E15200AE8FB7 /* TodayViewController.swift */,
 				482E8E4D1FE3E15200AE8FB7 /* MainInterface.storyboard */,
 				482E8E501FE3E15200AE8FB7 /* Info.plist */,
@@ -127,6 +130,7 @@
 		483AA9EC1FAF48E300DEE9F4 /* TideTracker */ = {
 			isa = PBXGroup;
 			children = (
+				484F656C1FE423440006DB0F /* Tidey.entitlements */,
 				483AA9ED1FAF48E300DEE9F4 /* AppDelegate.swift */,
 				483AA9EF1FAF48E300DEE9F4 /* TideVC.swift */,
 				486C04781FE07E7800D32A2A /* TideModel.swift */,
@@ -192,10 +196,20 @@
 					482E8E451FE3E15100AE8FB7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					483AA9E91FAF48E300DEE9F4 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -306,6 +320,7 @@
 		482E8E541FE3E15200AE8FB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TideWidget/TideWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KVYSWMVXX;
 				INFOPLIST_FILE = TideWidget/Info.plist;
@@ -322,6 +337,7 @@
 		482E8E551FE3E15200AE8FB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TideWidget/TideWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KVYSWMVXX;
 				INFOPLIST_FILE = TideWidget/Info.plist;
@@ -447,6 +463,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TideTracker/Tidey.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2KVYSWMVXX;
@@ -467,6 +484,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TideTracker/Tidey.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2KVYSWMVXX;
