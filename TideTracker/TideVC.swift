@@ -9,7 +9,7 @@
 import UIKit
 
 class TideVC: UIViewController {
-
+  
   @IBOutlet weak var percentLabel: UILabel!
   @IBOutlet weak var statusLabel: UILabel!
   @IBOutlet weak var highTideLabel: UILabel!
@@ -23,7 +23,7 @@ class TideVC: UIViewController {
   @IBOutlet weak var searchButton: UIImageView!
   @IBOutlet weak var backgroundButton: UIButton!
   
-  fileprivate var model: TideModelType!
+  fileprivate var model: TideModelType = TideModel()
   fileprivate var timer: Timer?
   
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -33,20 +33,22 @@ class TideVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.model = TideModel()
     activityIndicator.hidesWhenStopped = true
     
-    let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
+    guard let userDefaults = UserDefaults(suiteName: "group.tideyDefaults") else { return }
+    
     let location = userDefaults.value(forKey: "location") as AnyObject?
     
     if let location = location as? String {
       locationTF.text = location
+    } else {
+      userDefaults.setValue("leigh-on-sea", forKey: "location")
     }
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    
     configureTextfield()
     startTimer(withInterval: 60)
     addSearchGestureRecogniser()
@@ -86,67 +88,13 @@ class TideVC: UIViewController {
     
     DispatchQueue.main.async {
       
-      let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
-      userDefaults.setValue(self.locationTF.text!, forKey: "location")
+      self.persistLocation()
+      self.stopIndicatingAndHideSplash()
+      self.animateStatusAndPercentLabels(withProperties: properties)
+      self.hideTextField()
+      self.setHighAndLowTideLabels(withProperties: properties)
+      self.setBackgroundImage(withProperties: properties)
       
-      self.activityIndicator.stopAnimating()
-      self.launchImage.alpha = 0
-
-      let location = self.locationTF.text!.isEmpty ? "Leigh-on-Sea" : self.locationTF.text!
-      self.statusLabel.text = location
-      self.statusLabel.alpha = 0
-      self.percentLabel.text = properties.percentSlice
-      self.percentLabel.alpha = 0
-
-      UIView.animate(withDuration: 0.8, animations: {
-        self.statusLabel.alpha = 1
-
-      }, completion: { finished in
-        
-        if finished {
-          
-          UIView.animate(withDuration: 0.8, animations: {
-            self.statusLabel.alpha = 0
-            
-          }, completion: { finished in
-            
-            UIView.animate(withDuration: 0.8, animations: {
-              self.statusLabel.alpha = 1
-              self.percentLabel.alpha = 1
-
-              self.statusLabel.text = properties.statusSlice
-            })
-          })
-        }
-      })
-      
-      self.highTideLabel.text = "High tide in " + properties.highTide
-      self.lowTideLabel.text = "Low tide in " + properties.lowTide
-      
-      UIView.animate(withDuration: 0.3, animations: {
-        self.locationTF.alpha = 0
-      })
-      self.view.endEditing(true)
-      
-      guard
-        let percentStr = properties.percentSlice.split(separator: "%").first,
-        let percent = Int(percentStr)
-        
-        else {
-          
-          self.bgImage.image = #imageLiteral(resourceName: "leigh")
-          return
-      }
-      
-      if percent < 50 {
-        self.bgImage.image = #imageLiteral(resourceName: "leigh")
-      } else if percent < 65 {
-        self.bgImage.image = #imageLiteral(resourceName: "seventynine")
-      } else if percent < 80 {
-        self.bgImage.image = #imageLiteral(resourceName: "eightynine")
-      } else if percent > 80 {
-        self.bgImage.image = #imageLiteral(resourceName: "ninetyeight")
-      }
     }
   }
   
@@ -154,7 +102,7 @@ class TideVC: UIViewController {
     
     DispatchQueue.main.async {
       self.activityIndicator.stopAnimating()
-
+      
       self.statusLabel.text = "💩"
       self.percentLabel.text = "No connection? Can't spell?"
       self.locationTF.becomeFirstResponder()
@@ -166,6 +114,85 @@ class TideVC: UIViewController {
         self.locationTF.alpha = 1
       })
     }
+  }
+  
+  fileprivate func persistLocation() {
+    let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
+    userDefaults.setValue(self.locationTF.text!, forKey: "location")
+  }
+  
+  fileprivate func stopIndicatingAndHideSplash() {
+    activityIndicator.stopAnimating()
+    launchImage.alpha = 0
+  }
+  
+  func animateStatusAndPercentLabels(withProperties properties: TideProperties) {
+    
+    statusLabel.text = properties.location
+    statusLabel.alpha = 0
+    percentLabel.text = properties.percentSlice
+    percentLabel.alpha = 0
+    
+    UIView.animate(withDuration: 0.8, animations: {
+      self.statusLabel.alpha = 1
+      
+    }, completion: { finished in
+      
+      if finished {
+        
+        UIView.animate(withDuration: 0.8, animations: {
+          self.statusLabel.alpha = 0
+          
+        }, completion: { finished in
+          
+          UIView.animate(withDuration: 0.8, animations: {
+            self.statusLabel.alpha = 1
+            self.percentLabel.alpha = 1
+            
+            self.statusLabel.text = properties.statusSlice
+          })
+        })
+      }
+    })
+  }
+  
+  fileprivate func setBackgroundImage(withProperties properties: TideProperties) {
+    
+    guard
+      let percentStr = properties.percentSlice.split(separator: "%").first,
+      let percent = Int(percentStr)
+      
+      else {
+        
+        self.bgImage.image = #imageLiteral(resourceName: "leigh")
+        return
+    }
+    
+    if percent < 40 {
+      bgImage.image = #imageLiteral(resourceName: "thirty")
+    } else if percent < 55 {
+      bgImage.image = #imageLiteral(resourceName: "leigh")
+    } else if percent < 65 {
+      bgImage.image = #imageLiteral(resourceName: "seventynine")
+    } else if percent <= 90 {
+      bgImage.image = #imageLiteral(resourceName: "eightynine")
+    } else if percent > 90 {
+      bgImage.image = #imageLiteral(resourceName: "ninetyeight")
+    }
+  }
+  
+  fileprivate func hideTextField() {
+    
+    view.endEditing(true)
+    UIView.animate(withDuration: 0.3, animations: {
+      self.locationTF.alpha = 0
+    })
+    
+  }
+  
+  fileprivate func setHighAndLowTideLabels(withProperties properties: TideProperties) {
+    highTideLabel.text = "High tide in " + properties.highTide
+    lowTideLabel.text = "Low tide in " + properties.lowTide
   }
   
   

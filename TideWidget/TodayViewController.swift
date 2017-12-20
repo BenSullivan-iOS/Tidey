@@ -28,13 +28,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     
-    let userDefaults = UserDefaults(suiteName: "group.tideyDefaults")!
+    guard let userDefaults = UserDefaults(suiteName: "group.tideyDefaults") else { return }
     let savedLocation = userDefaults.value(forKey: "location") as AnyObject?
     
     var location = "Leigh-on-sea"
     
     if let savedLocation = savedLocation as? String {
       location = savedLocation
+    } else {
+      userDefaults.setValue("leigh-on-sea", forKey: "location")
     }
     
     model = TideModel()
@@ -46,7 +48,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         switch result {
         case .value(let properties):
           
-          self.locationLabel.text = location
+          self.locationLabel.text = properties.location
           self.tideStatus.text = properties.statusSlice
           self.tidePercentage.text = properties.percentSlice
           self.highTideLabel.text = "High tide in " + properties.highTide

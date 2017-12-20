@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias TideProperties = (highTide: String, lowTide: String, statusSlice: String, percentSlice: String)
+typealias TideProperties = (highTide: String, lowTide: String, statusSlice: String, percentSlice: String, location: String)
 
 protocol TideModelType {
   func downloadData(location: String, completion: @escaping ResultBlock<TideProperties>)
@@ -18,11 +18,11 @@ struct TideModel: TideModelType {
   
   func downloadData(location: String, completion: @escaping ResultBlock<TideProperties>) -> () {
     
-    let location = location.isEmpty ? "leigh-on-sea" : location.lowercased()
+    let formattedLocation = location.isEmpty ? "leigh-on-sea" : location.lowercased()
       .trimmingCharacters(in: .whitespacesAndNewlines)
       .replacingOccurrences(of: " ", with: "-")
     
-    let leighUrl = URL(string: "https://www.tidetime.org/europe/united-kingdom/" + location + ".htm")
+    let leighUrl = URL(string: "https://www.tidetime.org/europe/united-kingdom/" + formattedLocation + ".htm")
     
     guard let url = leighUrl else {
       completion(Result.error(""))
@@ -65,7 +65,8 @@ struct TideModel: TideModelType {
         highTide: highTide,
         lowTide: lowTide,
         statusSlice: statusSlice,
-        percentSlice: percentSlice
+        percentSlice: percentSlice,
+        location: location.capitalizingFirstLetter()
       )
       
       completion(Result.value(properties))
